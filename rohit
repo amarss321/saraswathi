@@ -14,7 +14,7 @@ pipeline {
         }
         stage('countinous deployment') {
             steps {
-                sh 'sshpass -p "venkata" scp target/java-war-deploy-example-0.1-SNAPSHOT.jar venkata@172.17.0.4:/opt/apache-tomcat-9.0.58/webapps'
+                sh 'sshpass -p "nath" scp target/java-war-deploy-example-0.1-SNAPSHOT.jar nath@172.17.0.3:/opt/apache-tomcat-9.0.58/webapps'
             }
         }
     }
