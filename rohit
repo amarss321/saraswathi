@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('countinous download') {
+            steps {
+                git 'https://github.com/daticahealth/java-war-deploy-example.git'
+            }
+        }
+        stage('countinous build') {
+            steps {
+                sh 'mvn install'
+            }
+        }
+        stage('countinous deployment') {
+            steps {
+                sh 'sshpass -p "venkata" scp target/java-war-deploy-example-0.1-SNAPSHOT.jar venkata@172.17.0.4:/opt/apache-tomcat-9.0.58/webapps'
+            }
+        }
+    }
+}
+
